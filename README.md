@@ -22,3 +22,7 @@ Automatically "get" libraries:
 
 ` go mod tidy `
 
+
+Other facts:
+* context, used to timeout actions like database connections so they don't run inifinitely, prevents resource leaks
+* 
