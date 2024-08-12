@@ -24,8 +24,8 @@ Automatically "get" libraries:
 
 
 Other facts:
-* context, used to timeout actions like database connections so they don't run inifinitely, prevents resource leaks
-* 
+* **context**: used to timeout actions like database connections so they don't run inifinitely, prevents resource leaks
+* **cursor**: a cursor is an object that allows you to iterate over the results of a query
 
 ```golang
 func (db *DB) Save(input *model.NewDog) *model.Dog {
