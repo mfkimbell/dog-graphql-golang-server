@@ -18,3 +18,7 @@ MySQL docker command:
 
 https://www.howtographql.com/graphql-go/4-database/
 
+Automatically "get" libraries: 
+
+` go mod tidy `
+
