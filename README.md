@@ -26,3 +26,22 @@ Automatically "get" libraries:
 Other facts:
 * context, used to timeout actions like database connections so they don't run inifinitely, prevents resource leaks
 * 
+
+```golang
+func (db *DB) Save(input *model.NewDog) *model.Dog {
+	collection := db.client.Database("animals").Collection("dogs")
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	res, err := collection.InsertOne(ctx, input)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return &model.Dog{
+		ID:        res.InsertedID.(primitive.ObjectID).Hex(),
+		Name:      input.Name,
+		IsGoodBoi: input.IsGoodBoi,
+	}
+}
+```
+* this (db *DB) is a method reciever, it calls this method on data of this type
+* *DB is a pointer to the DB type
